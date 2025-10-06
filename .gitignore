@@ -1,0 +1,25 @@
+# Gradle / builds
+.gradle/
+build/
+**/build/
+.cxx/
+.externalNativeBuild/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Local SDK/keys
+local.properties
+*.keystore
+*.jks
+
+# Outputs & logs
+app/outputs/
+outputs/
+*.log
+captures/
+
+# OS/editor junk
+.DS_Store
+Thumbs.db

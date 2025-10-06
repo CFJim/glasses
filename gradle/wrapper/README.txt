@@ -1,0 +1,1 @@
+Android Studio will download gradle-wrapper.jar automatically on sync.

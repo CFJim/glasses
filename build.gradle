@@ -1,0 +1,6 @@
+tasks.register("cleanAll") {
+  doLast {
+    println("Cleaning project build dirs…")
+    delete(rootProject.buildDir)
+  }
+}

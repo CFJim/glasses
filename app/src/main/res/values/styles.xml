@@ -1,0 +1,6 @@
+﻿<resources>
+    <style name="Theme.ClearFrame" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+</resources>

@@ -1,0 +1,22 @@
+<!-- Place these inside <manifest> (top of the file) -->
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+<!-- If you ever target Android 12+, also add (harmless on older Blade OS) -->
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+<uses-permission android:name="android.permission.BLUETOOTH_CONNECT"
+    xmlns:tools="http://schemas.android.com/tools" tools:ignore="ProtectedPermissions"/>
+
+<!-- Place these inside <application> -->
+<service
+    android:name=".SppKeepaliveService"
+    android:exported="false"
+    android:foregroundServiceType="dataSync" />
+
+<!-- Optional tiny launcher to start the service -->
+<activity android:name=".StartSpp" android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.clearframe.clearframeview"
+    namespace = "com.clearframe.bladeviewer"
     compileSdk = 34
 
     defaultConfig {
-    applicationId = "com.clearframe.clearframeview"
+        applicationId = "com.clearframe.bladeviewer"
         minSdk = 26
         targetSdk = 33
         versionCode = 1

@@ -17,3 +17,10 @@ captures/
 # Misc
 .DS_Store
 Thumbs.db
+# Ignore accidental resource backups
+app/src/main/res/**/.bak*
+app/src/main/res/**/*.bak*
+app/src/main/res/**/.orig*
+app/src/main/res/**/*.orig*
+app/src/main/res/**/.tmp*
+app/src/main/res/**/*.tmp*

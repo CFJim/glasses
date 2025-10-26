@@ -11,6 +11,7 @@ import java.io.OutputStream
 import java.util.UUID
 
 class SppKeepaliveService : Service() {
+    private lateinit var wakeLock: PowerManager.WakeLock
 
     companion object {
         private const val TAG = "CF.SPP"
@@ -144,3 +145,32 @@ class SppKeepaliveService : Service() {
         }
     }
 }
+
+    private fun startAsForeground() {
+        val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val chId = "cf_spp_keepalive"
+        if (Build.VERSION.SDK_INT >= 26) {
+            val ch = NotificationChannel(chId, "ClearFrame SPP", NotificationManager.IMPORTANCE_LOW)
+            nm.createNotificationChannel(ch)
+        }
+        val note: Notification = NotificationCompat.Builder(this, chId)
+            .setContentTitle("ClearFrame Link")
+            .setContentText("Bluetooth SPP connected")
+            .setSmallIcon(android.R.drawable.stat_sys_data_bluetooth)
+            .setOngoing(true)
+            .build()
+        startForeground(1001, note)
+    }
+
+    private fun acquireCpuWakeLock() {
+        val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+        @Suppress("DEPRECATION")
+        wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ClearFrame:SPP")
+        wakeLock.setReferenceCounted(false)
+        if (!wakeLock.isHeld) wakeLock.acquire()
+    }
+
+    override fun onDestroy() {
+        try { if (this::wakeLock.isInitialized && wakeLock.isHeld) wakeLock.release() } catch (_: Throwable) {}
+        super.onDestroy()
+    }

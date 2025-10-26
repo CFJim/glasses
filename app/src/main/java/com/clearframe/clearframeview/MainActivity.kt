@@ -1,4 +1,4 @@
-ï»¿package com.clearframe.clearframeview
+package com.clearframe.clearframeview
 
 import android.Manifest
 import android.bluetooth.*
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         button = findViewById(R.id.buttonAction)
 
         Toast.makeText(this, "App started", Toast.LENGTH_SHORT).show()
-        status.text = "Blade app started. Checking Bluetoothâ€¦"
+        status.text = "Blade app started. Checking Bluetooth…"
         Log.i(TAG, "onCreate: starting")
 
         ensurePermissionsIfNeeded()
@@ -64,14 +64,14 @@ class MainActivity : AppCompatActivity() {
 
         val device = bonded.firstOrNull { it.name == alias }
         if (device == null) {
-            val msg = "Paired device '$alias' not found. Pair in Settings â†’ Bluetooth."
+            val msg = "Paired device '$alias' not found. Pair in Settings ? Bluetooth."
             status.text = msg + "\nBonded: $list"
             Log.e(TAG, msg)
             if (manual) Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
             return
         }
 
-        status.text = "Connecting to ${device.name}â€¦"
+        status.text = "Connecting to ${device.name}…"
         button.isEnabled = false
         Log.i(TAG, "Connecting to ${device.name} (${device.address})")
 
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun readLoop(sock: BluetoothSocket) {
         runOnUiThread {
-            status.text = "Connected. Readingâ€¦"
+            status.text = "Connected. Reading…"
             Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show()
         }
         try {

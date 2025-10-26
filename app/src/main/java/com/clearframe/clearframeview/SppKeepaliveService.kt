@@ -1,4 +1,4 @@
-﻿package com.clearframe.clearframeview
+package com.clearframe.clearframeview
 
 import android.app.Notification
 import android.app.NotificationChannel

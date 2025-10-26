@@ -1,4 +1,6 @@
 package com.clearframe.clearframeview.ui
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -13,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CFBtTestActivity : ComponentActivity() {
+class CFBtTestActivity : AppCompatActivity() {
 
     private val bladeMac = "98:DA:92:01:0A:31"
     private var frames = 0

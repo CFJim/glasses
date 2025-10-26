@@ -1,4 +1,4 @@
-﻿package com.clearframe.clearframeview.bt
+package com.clearframe.clearframeview.bt
 
 import java.util.UUID
 
